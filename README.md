@@ -10,8 +10,10 @@ A responsive personal portfolio for an AI Full-Stack Engineer. Built with React,
 - NVIDIA and Anthropic certification cards with company icons
 - Downloadable resume
 - Light and dark themes
-- Local admin panel for updating portfolio content
+- Admin panel for updating portfolio content
 - Brand SVG icons stored locally for technology badges
+- Prerendered HTML, meta tags, structured data, `robots.txt`, and `sitemap.xml` generated at build time
+- Ready to deploy on Vercel
 
 ## Tech stack
 
@@ -19,47 +21,48 @@ A responsive personal portfolio for an AI Full-Stack Engineer. Built with React,
 - Vite 6
 - Tailwind CSS 3
 - Lucide React icons
+- Vercel Functions and Vercel Blob (production API and content storage)
 
-## เปิดใช้งานบน Linux
+## Running on Linux
 
-### ความต้องการ
+### Requirements
 
-- Linux distribution ที่รองรับ Node.js 18 ขึ้นไป
+- A Linux distribution that supports Node.js 22
 - NVM (Node Version Manager)
-- Git (หาก clone โปรเจกต์จาก repository)
+- Git (if you clone the project from a repository)
 
-### ติดตั้ง Node.js แบบเฉพาะโปรเจกต์ด้วย NVM
+### Install a project-specific Node.js with NVM
 
-โปรเจกต์นี้มีไฟล์ `.nvmrc` กำหนด Node.js major version ที่ใช้ไว้ เหมือนแนวคิดของ `.venv`: เมื่อเข้าโฟลเดอร์โปรเจกต์ ให้สลับมาใช้ Node version นี้ก่อน โดยไม่กระทบ Node version ของโปรเจกต์อื่น
+The project includes an `.nvmrc` file that pins the Node.js major version, similar in spirit to a `.venv`: switch to this Node version when you enter the project folder, without affecting the Node version used by other projects.
 
-ติดตั้ง NVM หากเครื่องยังไม่มี (ดูคำสั่งเวอร์ชันล่าสุดจาก <https://github.com/nvm-sh/nvm>):
+Install NVM if it is not already on the machine (see <https://github.com/nvm-sh/nvm> for the latest command):
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 ```
 
-เปิด terminal ใหม่ หรือโหลด NVM ใน shell ปัจจุบัน:
+Open a new terminal, or load NVM into the current shell:
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 ```
 
-จากโฟลเดอร์โปรเจกต์ ติดตั้งและใช้งาน Node version ที่ระบุใน `.nvmrc`:
+From the project folder, install and use the Node version listed in `.nvmrc`:
 
 ```bash
 nvm install
 nvm use
 ```
 
-ตรวจสอบเวอร์ชัน:
+Check the versions:
 
 ```bash
 node --version
 npm --version
 ```
 
-ทุกครั้งที่เปิด terminal ใหม่และเข้ามาในโฟลเดอร์นี้ ให้รัน `nvm use` ก่อน `npm install`, `npm run dev` หรือ `npm run build`
+Each time you open a new terminal in this folder, run `nvm use` before `npm install`, `npm run dev`, or `npm run build`.
 
 ### Development server
 
@@ -69,13 +72,13 @@ Install dependencies:
 npm install
 ```
 
-สร้างไฟล์ตั้งค่า local (ไฟล์นี้ถูก ignore โดย Git):
+Create the local settings file (it is ignored by Git):
 
 ```bash
 cp .env.example .env
 ```
 
-แก้ไข `.env` และกำหนดข้อมูล Admin รวมถึงพอร์ต:
+Edit `.env` and set the admin credentials and ports:
 
 ```env
 ADMIN_USERNAME=Admin
@@ -85,92 +88,97 @@ PORT=5173
 AUTH_PORT=8787
 ```
 
-`PORT` คือพอร์ตหน้าเว็บไซต์ ส่วน `AUTH_PORT` คือพอร์ต API ภายในสำหรับล็อกอิน โดยต้องเป็นคนละพอร์ตใน development
+`PORT` is the website port. `AUTH_PORT` is the internal API port used for login. The two must be different in development.
 
-ตัวอย่างหากต้องการใช้พอร์ต `5000`:
+For example, to use port `5000`:
 
 ```env
 PORT=5000
 AUTH_PORT=8787
 ```
 
-หลังบันทึก `.env` ให้หยุดและเริ่มใหม่ด้วย `npm run dev` แล้วเปิด `http://localhost:5000/` และ `http://localhost:5000/admin/` ได้ตามปกติ คำสั่ง PM2 (`npm run start`) ก็จะใช้ค่า `PORT=5000` เดียวกันโดยอัตโนมัติ
+After saving `.env`, stop and restart `npm run dev`, then open `http://localhost:5000/` and `http://localhost:5000/admin/` as usual. The PM2 command (`npm run start`) uses the same `PORT=5000` value automatically.
 
-เริ่ม development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-เปิดใช้งาน:
+Open:
 
 - Portfolio: `http://localhost:<PORT>/`
 - Admin panel: `http://localhost:<PORT>/admin/`
 
 ## Admin panel
 
-The admin panel authenticates through a server-side API. Its password is stored only in the local `.env` file and is never bundled into client JavaScript. Login sessions use short-lived `HttpOnly`, `SameSite=Strict` cookies and repeated failed attempts are rate-limited.
+The admin panel authenticates through a server-side API. Its password is stored only in environment variables (the local `.env` file, or the Vercel project settings) and is never bundled into client JavaScript. Login sessions use short-lived `HttpOnly`, `SameSite=Strict` cookies, and repeated failed attempts are rate-limited.
 
-For a public deployment, serve the app only over HTTPS and set `COOKIE_SECURE=true` in the production environment. Do not deploy the `.env` file or expose port `8787`; use the included `npm run start` server behind an HTTPS reverse proxy.
+For a self-hosted public deployment, serve the app only over HTTPS and set `COOKIE_SECURE=true` in the production environment. Do not deploy the `.env` file or expose port `8787`; use the included `npm run start` server behind an HTTPS reverse proxy.
 
-Content changes are stored on the server in `data/content.json` after pressing `Save changes`; browser local storage is only used as a temporary cache. The file remains after the browser closes, server restarts, or the machine reboots. Back up `data/content.json` regularly in production.
+Where content is stored depends on how the site is hosted:
 
-## คู่มือใช้งาน Admin
+- **Local and self-hosted (`server.mjs`)**: `Save changes` writes to `data/content.json` on the server. The file survives browser restarts, server restarts, and reboots. Back it up regularly in production.
+- **Vercel**: `Save changes` writes to Vercel Blob. See [Deploying to Vercel](#deploying-to-vercel).
 
-1. เปิด `http://localhost:5173/admin/` แล้วล็อกอินด้วยข้อมูลใน `.env`
-2. เลือกหมวดจากเมนูด้านซ้าย จากนั้นเพิ่ม, ลบ หรือแก้ไขข้อมูลได้ตามต้องการ
-3. ใช้ปุ่ม `↑` และ `↓` เพื่อเรียงลำดับรายการหลักและรายการย่อย
-4. กด `Save changes` หลังแก้ไขทุกครั้ง ปุ่มจะเปลี่ยนเป็น `Saved` พร้อมเครื่องหมาย ✓ เมื่อบันทึกสำเร็จ
+Browser local storage is only used as a temporary cache.
 
-### การอัปโหลดรูป
+## Admin guide
 
-- รองรับ PNG, JPG, WEBP และ GIF ขนาดไม่เกิน 700 KB ต่อรูป
-- อัปโหลดหรือลบรูปได้ใน Stats, Experiences, Education, Tech Stack, Projects, Certifications และ Achievements
-- Projects มีรูปหน้าปกและ gallery ได้ไม่เกิน 5 รูป เลือกรูปใน gallery เป็นรูปหน้าปกได้ด้วยปุ่ม `Set cover`
+1. Open `http://localhost:5173/admin/` and log in with the credentials from `.env`.
+2. Pick a section from the left menu, then add, remove, or edit entries as needed.
+3. Use the `↑` and `↓` buttons to reorder main items and sub-items.
+4. Press `Save changes` after every edit. The button changes to `Saved` with a ✓ when the save succeeds.
 
-### Projects และ Demo
+### Uploading images
 
-ใน Admin > Projects ใส่ `Demo URL` เพื่อให้ปุ่ม `VIEW DEMO` ปรากฏหลัง `VIEW PROJECT` บนหน้าเว็บไซต์ ลิงก์จะเปิดแท็บใหม่
+- PNG, JPG, WEBP, and GIF are supported, up to 700 KB per image.
+- Images can be uploaded or removed in Stats, Experiences, Education, Tech Stack, Projects, Certifications, and Achievements.
+- Each project has a cover image and a gallery of up to 5 images. Use `Set cover` to choose a gallery image as the cover.
 
-### CV หลายเวอร์ชัน
+### Projects and demos
 
-ใน Admin > CV Download สามารถอัปโหลด PDF ได้หลายเวอร์ชัน (ไม่เกิน 1 MB ต่อไฟล์), ตั้งชื่อแต่ละเวอร์ชัน, กด `Preview PDF`, ลบไฟล์ที่ไม่ใช้ และกด `Use this version` เพื่อกำหนด CV ที่ปุ่ม Download บนหน้าเว็บจะใช้
+In Admin > Projects, fill in `Demo URL` to show a `VIEW DEMO` button after `VIEW PROJECT` on the website. The link opens in a new tab.
 
-> การแก้ไขจาก Admin จะบันทึกลงไฟล์ `data/content.json` บนเซิร์ฟเวอร์ และผู้เข้าชมทุกคนจะเห็นข้อมูลชุดเดียวกันหลังรีเฟรชหน้าเว็บ ควรสำรองไฟล์นี้เป็นประจำ
+### Multiple CV versions
 
-## Deploy บน Vercel
+In Admin > CV Download you can upload several PDF versions (up to 1 MB per file), name each version, press `Preview PDF`, delete unused files, and press `Use this version` to choose the CV served by the Download button on the website.
 
-โปรเจกต์มี `vercel.json` และ Vercel Functions ในโฟลเดอร์ `api/` พร้อมใช้งานแล้ว (`server.mjs` ใช้เฉพาะ local และ PM2 เท่านั้น Vercel ไม่ได้รันไฟล์นี้)
+> Edits made in the admin panel are saved on the server, and every visitor sees the same content after refreshing the page.
 
-1. Import โปรเจกต์เข้า Vercel จาก Git repository หรือรัน `npx vercel` จากโฟลเดอร์โปรเจกต์ ไม่ต้องแก้ Build settings
-2. ที่ Project Settings > Environment Variables ตั้งค่า `ADMIN_USERNAME` และ `ADMIN_PASSWORD` (ใช้รหัสผ่านยาวและไม่ซ้ำกับที่อื่น)
-3. ที่แท็บ Storage สร้าง Blob store แบบ Private แล้ว connect เข้ากับโปรเจกต์ Vercel จะเพิ่ม `BLOB_READ_WRITE_TOKEN` ให้อัตโนมัติ (ถ้าสร้างแบบ Public ให้ตั้ง `BLOB_ACCESS=public` เพิ่ม)
-4. Redeploy หนึ่งครั้งเพื่อให้ค่า Environment Variables มีผล
+## Deploying to Vercel
 
-ข้อควรรู้:
+The project ships with `vercel.json` and Vercel Functions in the `api/` folder. `server.mjs` is only used locally and with PM2; Vercel does not run it.
 
-- เนื้อหาเริ่มต้นบน Vercel มาจาก `data/content.json` ที่ deploy ไปด้วย เมื่อกด `Save changes` ใน Admin ข้อมูลจะถูกเก็บใน Vercel Blob และใช้แทนไฟล์นี้
-- หากยังไม่ได้ connect Blob store หน้าเว็บจะแสดงผลได้ตามปกติ แต่ Admin จะบันทึกไม่ได้
-- Vercel จำกัดขนาด request ไว้ที่ 4.5 MB ดังนั้นเนื้อหาทั้งหมดรวมรูปและ PDF ที่อัปโหลดผ่าน Admin ต้องไม่เกินขนาดนี้ รูปขนาดใหญ่ควรวางใน `public/images/` แล้วอ้างอิงด้วย path แทน
-- Session ของ Admin เป็น signed cookie อายุ 4 ชั่วโมง การเปลี่ยน `ADMIN_PASSWORD` จะทำให้ session เดิมใช้ไม่ได้ทันที
-- การจำกัดจำนวนครั้งที่ล็อกอินผิดบน Vercel ทำงานแยกตาม function instance จึงไม่เข้มงวดเท่า `server.mjs`
+1. Import the project into Vercel from a Git repository, or run `npx vercel` from the project folder. No build settings need to be changed.
+2. In Project Settings > Environment Variables, set `ADMIN_USERNAME` and `ADMIN_PASSWORD`. Use a long password that you do not use anywhere else.
+3. In the Storage tab, create a Private Blob store and connect it to the project. Vercel adds `BLOB_READ_WRITE_TOKEN` automatically. If you create a Public store instead, also set `BLOB_ACCESS=public`.
+4. Redeploy once so the environment variables take effect.
+
+Things to know:
+
+- The starting content on Vercel comes from `data/content.json`, which is deployed with the project. Once you press `Save changes` in the admin panel, the content is stored in Vercel Blob and replaces that file.
+- Without a connected Blob store, the website still renders normally, but the admin panel cannot save.
+- Vercel limits request bodies to 4.5 MB, so the whole content payload, including images and PDFs uploaded through the admin panel, must stay under that size. Put large images in `public/images/` and reference them by path instead.
+- Admin sessions are signed cookies that last 4 hours. Changing `ADMIN_PASSWORD` invalidates existing sessions immediately.
+- Login rate limiting on Vercel is tracked per function instance, so it is less strict than with `server.mjs`.
 
 ## SEO
 
-`npm run build` ทำสามขั้นตอน: build ฝั่ง client, build SSR bundle ชั่วคราว แล้วรัน `scripts/prerender.mjs` ซึ่งจะ
+`npm run build` runs three steps: the client build, a temporary SSR bundle, and `scripts/prerender.mjs`, which:
 
-- render หน้า portfolio เป็น HTML ลงใน `dist/index.html` เพื่อให้ crawler ที่ไม่รัน JavaScript เห็นเนื้อหาจริง
-- สร้าง title, description, canonical, Open Graph, Twitter Card และ JSON-LD (`Person`, `WebSite`, `ProfilePage`) จากเนื้อหาใน Admin
-- สร้าง `robots.txt` และ `sitemap.xml`
+- renders the portfolio to HTML inside `dist/index.html`, so crawlers that do not run JavaScript see the real content
+- generates the title, description, canonical URL, Open Graph tags, Twitter Card tags, and JSON-LD (`Person`, `WebSite`, `ProfilePage`) from the admin content
+- generates `robots.txt` and `sitemap.xml`
 
-URL หลักของเว็บมาจาก `SITE_URL` ถ้าไม่ได้ตั้งจะใช้โดเมน production ของ Vercel อัตโนมัติ **ถ้าใช้ custom domain ให้ตั้ง `SITE_URL=https://your-domain.com` ใน Environment Variables ของ Vercel** เมื่อ build ในเครื่องโดยไม่ตั้งค่านี้ canonical, `og:image` และ sitemap จะถูกข้าม
+The site's canonical URL comes from `SITE_URL`. If it is not set, the Vercel production domain is used automatically. **If you use a custom domain, set `SITE_URL=https://your-domain.com` in the Vercel environment variables.** When building locally without it, the canonical URL, `og:image`, and sitemap are skipped.
 
-ข้อควรรู้:
+Things to know:
 
-- HTML และ meta tags ถูกสร้างตอน build หลังแก้เนื้อหาใน Admin ต้อง Redeploy เพื่อให้ส่วนนี้อัปเดต (ผู้เข้าชมเห็นเนื้อหาใหม่ทันทีตามปกติ)
-- รูปที่ใช้ตอนแชร์ลิงก์คือ `public/og-image.jpg` (1200x630) หากเปลี่ยนชื่อหรือตำแหน่งงาน ควรทำรูปนี้ใหม่
-- หน้า `/admin` ถูกตั้งเป็น `noindex`
-- หลัง deploy ให้เพิ่มเว็บใน Google Search Console แล้ว submit `sitemap.xml`
+- The HTML and meta tags are generated at build time. After editing content in the admin panel, redeploy to refresh them. Visitors see the new content immediately either way.
+- The image used when the link is shared is `public/og-image.jpg` (1200x630). Recreate it if the name or job title changes.
+- The `/admin` page is marked `noindex`.
+- After deploying, add the site to Google Search Console and submit `sitemap.xml`.
 
 ## Build for production
 
@@ -180,59 +188,61 @@ npm run build
 
 The production output is created in `dist/`.
 
-To run the production build with authentication:
+To run the production build with authentication on your own server:
 
 ```bash
 npm run start
 ```
 
-Production server ใช้ค่าจาก `PORT` ใน `.env` (หากไม่กำหนดจะใช้ `3000`) สำหรับการ deploy จริงต้องใช้ HTTPS, ตั้ง `COOKIE_SECURE=true` และเก็บ `.env` เป็น secret เสมอ
+The production server reads `PORT` from `.env` (default `3000`). A real deployment must use HTTPS, set `COOKIE_SECURE=true`, and keep `.env` secret.
 
-### รันด้วย PM2 บน Linux
+### Running with PM2 on Linux
 
-PM2 เหมาะสำหรับให้แอปทำงานต่อเนื่อง, restart เมื่อ process หยุดทำงาน และเริ่มอัตโนมัติหลังเครื่อง reboot
+PM2 keeps the app running, restarts it if the process stops, and starts it automatically after a reboot.
 
-ติดตั้ง PM2 แบบ global หลังจากใช้ Node version ของโปรเจกต์แล้ว:
+Install PM2 globally after switching to the project's Node version:
 
 ```bash
 nvm use
 npm install --global pm2
 ```
-สร้าง production build และลบกับสร้าง node_modules ใหม่
+
+Reinstall `node_modules` from scratch and create the production build:
+
 ```bash
 rm -rf node_modules
 npm ci
 npm run build
 ```
 
-สร้าง production build และเริ่มแอป:
+Start the app:
 
 ```bash
 pm2 start npm --name ai-portfolio -- run start
 ```
 
-ตรวจสอบสถานะและ log:
+Check status and logs:
 
 ```bash
 pm2 status
 pm2 logs ai-portfolio
 ```
 
-ตั้งให้ PM2 เริ่มอัตโนมัติหลัง reboot (รันคำสั่งที่ PM2 แสดงผลต่อจาก `pm2 startup` ด้วย):
+Start PM2 automatically after a reboot (also run the command that `pm2 startup` prints):
 
 ```bash
 pm2 startup
 pm2 save
 ```
 
-หลังแก้ไขโค้ดและ build ใหม่ ให้ restart แอป:
+After changing code, rebuild and restart the app:
 
 ```bash
 npm run build
 pm2 restart ai-portfolio
 ```
 
-หยุดหรือลบ process:
+Stop or remove the process:
 
 ```bash
 pm2 stop ai-portfolio
@@ -244,9 +254,15 @@ pm2 delete ai-portfolio
 ```text
 .
 ├── admin/                         # Admin route entry HTML
+├── api/                           # Vercel Functions (auth and content API)
+├── data/
+│   └── content.json               # Saved content; starting content on Vercel
 ├── public/
 │   ├── Resume.pdf                 # Downloadable resume
+│   ├── og-image.jpg               # Link-sharing preview image
 │   └── images/logos/              # Local technology brand SVGs
+├── scripts/
+│   └── prerender.mjs              # Build-time prerender and SEO files
 ├── src/
 │   ├── assets/projects/
 │   │   ├── smartload-3d/          # SmartLoad gallery images
@@ -254,8 +270,11 @@ pm2 delete ai-portfolio
 │   ├── App.jsx                    # Portfolio UI
 │   ├── AdminApp.jsx               # Content-management UI
 │   ├── content.js                 # Portfolio data and admin settings
+│   ├── entry-server.jsx           # Server render entry used by the prerender step
 │   ├── index.css                  # Tailwind and custom styles
 │   └── main.jsx                   # Route selection and app entry
+├── server.mjs                     # Local and self-hosted server (dev, PM2)
+├── vercel.json                    # Vercel build settings and headers
 ├── vite.config.js
 └── package.json
 ```
