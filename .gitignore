@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+*.local
+*.log
+.env
+.vercel
+data/*.tmp
+tmp
+.cv-build
+.cv-render
+.uv-cache
+.ssr

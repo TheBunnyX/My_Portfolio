@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="18" fill="#020617"/>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#paint0_linear_1_2)"/>
+  <rect x="17" y="18" width="30" height="26" rx="10" fill="#E0F2FE"/>
+  <rect x="22" y="10" width="20" height="9" rx="4.5" fill="#38BDF8"/>
+  <path d="M32 10V6" stroke="#F8FAFC" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="26.5" cy="31" r="3.5" fill="#0F172A"/>
+  <circle cx="37.5" cy="31" r="3.5" fill="#0F172A"/>
+  <path d="M25 38H39" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M17 27H13.5" stroke="#E0F2FE" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50.5 27H47" stroke="#E0F2FE" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 49.5H40" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round"/>
+  <path d="M22 56H42" stroke="#7DD3FC" stroke-width="4" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="9" y1="7" x2="55" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0891B2"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+</svg>

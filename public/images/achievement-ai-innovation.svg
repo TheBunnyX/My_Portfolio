@@ -1,0 +1,22 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#0F172A"/>
+  <circle cx="214" cy="160" r="160" fill="#F59E0B" fill-opacity="0.22"/>
+  <circle cx="970" cy="130" r="180" fill="#FB7185" fill-opacity="0.18"/>
+  <circle cx="906" cy="592" r="220" fill="#38BDF8" fill-opacity="0.16"/>
+  <rect x="116" y="124" width="968" height="472" rx="32" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14" stroke-width="2"/>
+  <rect x="170" y="190" width="340" height="196" rx="24" fill="url(#paint0_linear_1_4)"/>
+  <path d="M264 302H416" stroke="white" stroke-width="20" stroke-linecap="round"/>
+  <path d="M264 340H376" stroke="white" stroke-width="20" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="780" cy="286" r="92" fill="#F59E0B" fill-opacity="0.2"/>
+  <path d="M780 222L798.878 260.244L841.087 266.378L810.543 296.151L817.756 338.189L780 318.345L742.244 338.189L749.457 296.151L718.913 266.378L761.122 260.244L780 222Z" fill="#FBBF24"/>
+  <path d="M584 430H940" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M584 474H878" stroke="white" stroke-width="18" stroke-linecap="round" opacity="0.82"/>
+  <path d="M584 518H802" stroke="white" stroke-width="18" stroke-linecap="round" opacity="0.68"/>
+  <text x="170" y="118" fill="#FCD34D" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0.22em">AI INNOVATION CHALLENGE</text>
+  <defs>
+    <linearGradient id="paint0_linear_1_4" x1="170" y1="190" x2="510" y2="386" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+  </defs>
+</svg>

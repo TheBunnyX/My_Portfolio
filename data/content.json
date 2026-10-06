@@ -1,0 +1,408 @@
+{
+  "profile": {
+    "name": "Mongkhon Hatit",
+    "role": "AI Full-Stack Engineer",
+    "email": "mongkolhatit@gmail.com",
+    "location": "Suan Luang, Bangkok, Thailand",
+    "github": "https://github.com/",
+    "linkedin": "https://www.linkedin.com/in/mongkhon-hatit/",
+    "bio": "AI Engineer with 2+ years of experience building and deploying production-ready solutions across LLMs, RAG/MCP agents, computer vision, and optimization systems. I focus on reliable, practical AI with measurable business impact.",
+    "image": "/images/profile.webp",
+    "availability": "OPEN TO WORK · 2026",
+    "basedInLabel": "Based in"
+  },
+  "cv": {
+    "file": "/Resume.pdf",
+    "downloadName": "Mongkhon-Hatit-Resume.pdf",
+    "label": "Download Resume",
+    "activeVersionId": "current",
+    "versions": [
+      {
+        "id": "current",
+        "name": "Current Resume",
+        "file": "/Resume.pdf",
+        "downloadName": "Mongkhon-Hatit-Resume.pdf"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "2+",
+      "label": "Years building"
+    },
+    {
+      "value": "95.4%",
+      "label": "Model accuracy achieved"
+    },
+    {
+      "value": "~70%",
+      "label": "Faster operations"
+    },
+    {
+      "value": "420K",
+      "label": "THB saved annually"
+    }
+  ],
+  "experiences": [
+    {
+      "icon": "BrainCircuit",
+      "title": "AI Full-Stack Engineer",
+      "company": "LANDY HOME (THAILAND) CO., LTD",
+      "companyLogo": "/images/logo-landyhome.svg",
+      "location": "Bangkok, Thailand",
+      "dates": "Aug 2025 - Present",
+      "color": "cyan",
+      "responsibilities": [
+        "Designed and implemented an n8n workflow for Oil Engineering customer-service operations, integrating Google Workspace and scheduled email notifications to cut processing time from 87 to 26 hours per cycle.",
+        "Designed and deployed an enterprise RAG and MCP chatbot integrating ChatGPT, Gemini, and Claude for secure, context-aware access to internal knowledge and tools, reducing annual operating costs by approximately 420,000 THB.",
+        "Developed and deployed a scalable Synology NAS file and folder management system, centralizing 92% of departmental storage with metadata, RBAC, and streamlined directory operations.",
+        "Built an end-to-end document review pipeline with validation, feedback loops, and standardized PDF reports, reducing manual processing time by 73%."
+      ]
+    },
+    {
+      "icon": "Network",
+      "title": "AI Researcher",
+      "company": "NSTDA (NECTEC) - AINRG Department",
+      "companyLogo": "/images/logo-nectec.svg",
+      "location": "Bangkok, Thailand",
+      "dates": "Aug 2024 - May 2025",
+      "color": "violet",
+      "responsibilities": [
+        "Designed and executed an end-to-end drone-based aerial-data pipeline covering large-scale point-cloud collection, preprocessing, visualization, and time-series analysis.",
+        "Developed, tested, and validated volume-change detection and classification algorithms through iterative experiments and performance benchmarking.",
+        "Achieved 95.4% accuracy and demonstrated reliability for real-world deployment."
+      ]
+    },
+    {
+      "icon": "BrainCircuit",
+      "title": "AI Engineer",
+      "company": "Somporn Mould & Parts Ltd. - HCU Applied AI Industry Project",
+      "companyLogo": "",
+      "location": "Bangkok, Thailand",
+      "dates": "Jan 2023 - Mar 2023",
+      "color": "cyan",
+      "responsibilities": [
+        "Developed AI-driven predictive-maintenance and optimization solutions at Somporn Mould & Parts Ltd. Learning Camp.",
+        "Applied machine learning to predict machine conditions, optimize operational parameters, and estimate maintenance timing.",
+        "Helped reduce unplanned downtime and improve overall machine efficiency."
+      ]
+    }
+  ],
+  "education": {
+    "schools": [
+      {
+        "school": "Huachiew Chalermprakiet University",
+        "degree": "Bachelor of Artificial Intelligence",
+        "dates": "Jan 2021 - May 2025",
+        "gpa": "3.69",
+        "image": "",
+        "coursework": [
+          "Natural Language Processing",
+          "Large Language Models",
+          "Computer Vision",
+          "Deep Learning",
+          "Machine Learning",
+          "AI Ecosystem",
+          "Optimization Techniques"
+        ]
+      }
+    ]
+  },
+  "stack": [
+    {
+      "title": "Programming",
+      "icon": "Code2",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "Python",
+          "icon": "Code2",
+          "iconImage": "/images/logos/python.svg"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "Code2",
+          "iconImage": "/images/logos/javascript.svg"
+        },
+        {
+          "name": "Dart",
+          "icon": "Code2",
+          "iconImage": "/images/logos/dart.svg"
+        },
+        {
+          "name": "C",
+          "icon": "Code2",
+          "iconImage": "/images/logos/c.svg"
+        },
+        {
+          "name": "SQL",
+          "icon": "Database",
+          "iconImage": ""
+        },
+        {
+          "name": "Rust",
+          "icon": "Code2",
+          "iconImage": "/images/logos/rust.svg"
+        }
+      ]
+    },
+    {
+      "title": "ML & Computer Vision",
+      "icon": "BrainCircuit",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "PyTorch",
+          "icon": "BrainCircuit",
+          "iconImage": "/images/logos/pytorch.svg"
+        },
+        {
+          "name": "Pandas",
+          "icon": "Database",
+          "iconImage": "/images/logos/pandas.svg"
+        },
+        {
+          "name": "NumPy",
+          "icon": "Database",
+          "iconImage": "/images/logos/numpy.svg"
+        },
+        {
+          "name": "OpenCV",
+          "icon": "BrainCircuit",
+          "iconImage": "/images/logos/opencv.svg"
+        },
+        {
+          "name": "SAM3",
+          "icon": "BrainCircuit",
+          "iconImage": "/images/logos/meta.svg"
+        },
+        {
+          "name": "YOLO",
+          "icon": "BrainCircuit",
+          "iconImage": "/images/logos/ultralytics.svg"
+        },
+        {
+          "name": "LangChain",
+          "icon": "GitBranch",
+          "iconImage": "/images/logos/langchain.svg"
+        }
+      ]
+    },
+    {
+      "title": "Databases",
+      "icon": "Database",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "PostgreSQL",
+          "icon": "Database",
+          "iconImage": "/images/logos/postgresql.svg"
+        },
+        {
+          "name": "MySQL",
+          "icon": "Database",
+          "iconImage": "/images/logos/mysql.svg"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "Database",
+          "iconImage": "/images/logos/mongodb.svg"
+        },
+        {
+          "name": "SQLite",
+          "icon": "Database",
+          "iconImage": "/images/logos/sqlite.svg"
+        },
+        {
+          "name": "Pinecone",
+          "icon": "Database",
+          "iconImage": ""
+        }
+      ]
+    },
+    {
+      "title": "Cloud & DevOps",
+      "icon": "Cloud",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "AWS",
+          "icon": "Cloud",
+          "iconImage": "/images/logos/amazonwebservices.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "Container",
+          "iconImage": "/images/logos/docker.svg"
+        },
+        {
+          "name": "Azure",
+          "icon": "Cloud",
+          "iconImage": "/images/logos/microsoftazure.svg"
+        },
+        {
+          "name": "Kubernetes",
+          "icon": "Container",
+          "iconImage": "/images/logos/kubernetes.svg"
+        },
+        {
+          "name": "Git",
+          "icon": "GitBranch",
+          "iconImage": "/images/logos/git.svg"
+        },
+        {
+          "name": "GitLab",
+          "icon": "GitBranch",
+          "iconImage": "/images/logos/gitlab.svg"
+        },
+        {
+          "name": "GitHub",
+          "icon": "GitBranch",
+          "iconImage": "/images/logos/github.svg"
+        },
+        {
+          "name": "Linux",
+          "icon": "ServerCog",
+          "iconImage": "/images/logos/linux.svg"
+        }
+      ]
+    },
+    {
+      "title": "Web Development",
+      "icon": "Globe2",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "Flask",
+          "icon": "ServerCog",
+          "iconImage": "/images/logos/flask.svg"
+        },
+        {
+          "name": "FastAPI",
+          "icon": "ServerCog",
+          "iconImage": "/images/logos/fastapi.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "Code2",
+          "iconImage": "/images/logos/tailwindcss.svg"
+        },
+        {
+          "name": "Next.js",
+          "icon": "Globe2",
+          "iconImage": "/images/logos/nextdotjs.svg"
+        },
+        {
+          "name": "React.js",
+          "icon": "Code2",
+          "iconImage": "/images/logos/react.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "ServerCog",
+          "iconImage": "/images/logos/nodedotjs.svg"
+        }
+      ]
+    },
+    {
+      "title": "LLM & Agent Tools",
+      "icon": "Bot",
+      "iconImage": "",
+      "items": [
+        {
+          "name": "LLM API Integration (ChatGPT, Claude, Gemini)",
+          "icon": "Bot",
+          "iconImage": ""
+        },
+        {
+          "name": "RAG",
+          "icon": "Database",
+          "iconImage": ""
+        },
+        {
+          "name": "MCP",
+          "icon": "GitBranch",
+          "iconImage": "/images/logos/modelcontextprotocol.svg"
+        },
+        {
+          "name": "n8n AI Automation",
+          "icon": "Workflow",
+          "iconImage": "/images/logos/n8n.svg"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "SmartLoad 3D",
+      "description": "A React-based truck cargo optimization platform using 3D bin-packing, weight balancing, collision detection, and loading constraints. It achieved 93% average space utilization and optimized up to 200 cargo items per load in about 2.5 seconds.",
+      "image": "/src/assets/projects/smartload-3d/1A.png",
+      "images": [
+        "/src/assets/projects/smartload-3d/1A.png",
+        "/src/assets/projects/smartload-3d/2A.png",
+        "/src/assets/projects/smartload-3d/3A.png"
+      ],
+      "tags": [
+        "React",
+        "3D Bin Packing",
+        "Optimization",
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "Smart Warehouse 3D",
+      "description": "An AI-powered warehouse optimization platform combining demand forecasting, intelligent SKU slotting, route optimization, and interactive 3D visualization. It reduced simulated picking distance by 40% across 500 SKUs.",
+      "image": "/src/assets/projects/smart-warehouse-3d/1.png",
+      "images": [
+        "/src/assets/projects/smart-warehouse-3d/1.png",
+        "/src/assets/projects/smart-warehouse-3d/2.png",
+        "/src/assets/projects/smart-warehouse-3d/3.png",
+        "/src/assets/projects/smart-warehouse-3d/4.png"
+      ],
+      "tags": [
+        "AI",
+        "Forecasting",
+        "Route Optimization",
+        "3D Visualization"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "AI for All From Basics to GenAI Practice",
+      "issuer": "NVIDIA",
+      "date": "Dec 2025",
+      "initials": "AI",
+      "color": "blue",
+      "image": "/src/certificate-nvidia.png",
+      "iconImage": "data:image/svg+xml,%3csvg%20fill='%2376B900'%20role='img'%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3ctitle%3eNVIDIA%3c/title%3e%3cpath%20d='M8.948%208.798v-1.43a6.7%206.7%200%200%201%20.424-.018c3.922-.124%206.493%203.374%206.493%203.374s-2.774%203.851-5.75%203.851c-.398%200-.787-.062-1.158-.185v-4.346c1.528.185%201.837.857%202.747%202.385l2.04-1.714s-1.492-1.952-4-1.952a6.016%206.016%200%200%200-.796.035m0-4.735v2.138l.424-.027c5.45-.185%209.01%204.47%209.01%204.47s-4.08%204.964-8.33%204.964c-.37%200-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062%203.957%200%206.82-2.023%209.593-4.408.459.371%202.34%201.263%202.73%201.652-2.633%202.208-8.772%203.984-12.253%203.984-.335%200-.653-.018-.971-.053v1.864H24V4.063zm0%2010.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944%204.673-2.262v1.237H8.94c-1.528-.186-2.73%201.245-2.73%201.245s.68%202.412%202.739%203.11M2.456%2010.9s2.164-3.197%206.5-3.533V6.201C4.153%206.59%200%2010.653%200%2010.653s2.35%206.802%208.948%207.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z'/%3e%3c/svg%3e"
+    },
+    {
+      "title": "AI Fluency: Framework & Foundations",
+      "issuer": "Claude",
+      "date": "2026",
+      "initials": "AF",
+      "color": "violet",
+      "image": "/src/certificate-claude.png",
+      "iconImage": "data:image/svg+xml,%3csvg%20fill='%23191919'%20role='img'%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3ctitle%3eAnthropic%3c/title%3e%3cpath%20d='M17.3041%203.541h-3.6718l6.696%2016.918H24Zm-10.6082%200L0%2020.459h3.7442l1.3693-3.5527h7.0052l1.3693%203.5528h3.7442L10.5363%203.5409Zm-.3712%2010.2232%202.2914-5.9456%202.2914%205.9456Z'/%3e%3c/svg%3e"
+    }
+  ],
+  "achievements": [
+    {
+      "place": "Top 5",
+      "title": "AI Thailand Hackathon 2024 (AI Cooking)",
+      "description": "Competed across OCR, optimization, NLP, and AI model training challenges for real-world problem statements, advancing to the Top 5.",
+      "color": "amber",
+      "icon": "Trophy",
+      "image": ""
+    },
+    {
+      "place": "Silver Medal",
+      "title": "National Software Contest (NSC) Thailand 2021",
+      "description": "Developed a face-recognition school check-in system with COVID-19 temperature screening using CorgiDude, earning the Silver Medal at NSC Thailand 2021.",
+      "color": "slate",
+      "icon": "Medal",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#082F49"/>
+  <circle cx="1030" cy="92" r="180" fill="#22D3EE" fill-opacity="0.18"/>
+  <circle cx="180" cy="598" r="210" fill="#3B82F6" fill-opacity="0.2"/>
+  <rect x="118" y="116" width="964" height="488" rx="34" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M206 490L316 382L408 434L534 286L650 340L774 214L916 300L994 248" stroke="#67E8F9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="316" cy="382" r="18" fill="#67E8F9"/>
+  <circle cx="534" cy="286" r="18" fill="#67E8F9"/>
+  <circle cx="774" cy="214" r="18" fill="#67E8F9"/>
+  <circle cx="994" cy="248" r="18" fill="#67E8F9"/>
+  <rect x="224" y="228" width="90" height="262" rx="18" fill="#0EA5E9" fill-opacity="0.82"/>
+  <rect x="352" y="178" width="98" height="312" rx="18" fill="#38BDF8" fill-opacity="0.76"/>
+  <rect x="492" y="262" width="78" height="228" rx="18" fill="#7DD3FC" fill-opacity="0.72"/>
+  <rect x="604" y="142" width="112" height="348" rx="18" fill="#22D3EE" fill-opacity="0.76"/>
+  <rect x="754" y="208" width="86" height="282" rx="18" fill="#0EA5E9" fill-opacity="0.7"/>
+  <text x="170" y="108" fill="#A5F3FC" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0.22em">SMART CITY HACKATHON</text>
+</svg>
